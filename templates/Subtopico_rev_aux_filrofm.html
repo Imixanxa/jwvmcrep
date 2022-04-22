@@ -1,0 +1,90 @@
+﻿{% extends 'layout.html' %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>subtopico_rev_aux_filtrofm</title>
+</head>
+
+
+{% block body %}
+<body>
+
+    <h4>
+
+
+
+        {% block title %}
+        <i>
+            subtopico_rev_aux_filrofm<br />
+            search for auxiliary student for ..
+            {{stuname}} {{stugenero}} {{stustatus}} <br />
+            {{semanai}} -  {{semanaf}} -  {{ topics }} <br />
+            {{ idt }} - {{ idplan }} -
+        </i>
+        {% endblock %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <h4> <i> {{message}} </i> </h4>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+    </h4>
+
+    <div class="col-md-5">
+        <table class="table table-striped table-bordered bg-white table-sm">
+            <thead>
+                <tr>
+                    <td> Id Tit </td>
+                    <td> Anio </td>
+                    <td> Mes </td>
+                    <td> Titular </td>
+                    <td> Genero </td>
+                    <td> Status </td>
+                    <td> Id Aux </td>
+                    <td> Auxiliar </td>
+                    <td> Genero </td>
+                    <td> Status </td>
+                    <td> <i> topico </i> </td>
+
+                    <td> Operation</td>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for estudiante in students %}
+                <tr>
+                    <td> {{ estudiante.0 }} </td>
+                    <td> {{ estudiante.1 }} </td>
+                    <td> {{ estudiante.2 }} </td>
+                    <td> {{ estudiante.3 }} </td>
+                    <td> {{ estudiante.4 }} </td>
+                    <td> {{ estudiante.5 }} </td>
+                    <td> {{ estudiante.6 }} </td>
+                    <td> {{ estudiante.7 }} </td>
+                    <td> {{ estudiante.8 }} </td>
+                    <td> {{ estudiante.9 }} </td>
+                    <td> {{ estudiante.10 }} </td>
+                    <td>
+                        <a href="/Subtopico_rev_pre_wrt/{{ estudiante.6 }} {{ idplan }} {{idt}} "
+                           class="btn btn-secondary">Sel-Auxiliar</a>
+                        <a href="/Subtopico_rev_pre_wrtxyz/{{ estudiante.0 }} {{ idplan }} {{idt}}"
+                           class="btn btn-secondary">Sel-Titular</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+    {% endblock %}
+</html>

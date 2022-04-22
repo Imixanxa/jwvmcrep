@@ -1,0 +1,66 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html>
+<title>subtopicosfm</title>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>subtopicosfm</title>
+</head>
+
+
+{% block body %}
+<body>
+
+    <style>
+        i {
+            font-style: italic;
+        }
+    </style>
+
+    <div class="form-group">
+        {% block title %}
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <h4> <i> {{message}} </i></h4>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h4>
+            <i>
+                SUBTOPICOSFM <br />
+                Principal student search for the topic:  {{ topics }} <br />
+                Period: {{ semanai }} - {{ semanaf }} -  <br />
+                PlanId: {{ pgmid }}
+                {% endblock %}
+            </i>
+
+        </h4>
+
+        <form action="/topico_read/ {{ pgmid }} " method="post">
+            <h4>
+                <i>
+                    <label for="periodo mensual"> Period: </label>
+                    <input type="month" name="periodo_m" id="periodo_m">
+                </i>
+                <i>
+                    <label for="nombre estudiante"> Student Main </label>
+                    <input type="text" name="name" id="name">
+                </i>
+                <i>
+                    <label for="">Enter to accept </label>
+                    <input type="submit" />
+
+                </i>
+            </h4>
+        </form>
+    </div>
+</body>
+    {% endblock %}
+</html>

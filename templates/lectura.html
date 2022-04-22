@@ -1,0 +1,126 @@
+﻿{% extends 'layouts.html' %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+        <link rel="stylesheet" href="{{url_for('static', filename='inputcss.css')}}">
+
+        <style>
+
+            .Reunion {
+                margin: auto;
+                background-color: #ffffff;
+            }
+
+            .izquierdo {
+                width: 370px;
+                height: 80px;
+                margin: auto;
+                float: left;
+                background-color: #ff6a00;
+            }
+
+            .titular {
+                width: 125px;
+                height: 80px;
+                margin: auto;
+                background-color: #00ff90;
+                float: left;
+            }
+
+            .aa {
+                margin: auto;
+            }
+        </style>
+
+</head>
+{% block body %}
+<body>
+    <h3>
+        {% block title %} grabe estudiante asignado
+        {% endblock %}
+    </h3>
+
+
+
+        <div class="col-mod-4 offset-md-2">
+
+            <form class="form-inline" action="/grabalectura/{{dataprim.0}} {{rcdstudent.0}}" method='post'>
+                <div class="Reunion">
+                    <div class="izquierdo">
+                        <p> Year:</p>
+                        <input type="number" name="pgmani" value="{{ dataprim.1 }}" readonly />
+                    </div>
+
+                    <div class="izquierdo">
+                        <p> Month:</p>
+                        <input type="number" name="pgmmes" value="{{ dataprim.2 }}" readonly />
+                    </div>
+
+                    <div class="izquierdo">
+                        <p> tiempo: </p>
+                        <input type="number" name="pgmtiempo" value="{{ dataprim.3 }}" readonly>
+                    </div>
+
+                    <div class="izquierdo">
+                        <p> leccion: </p>
+                        <input type="text" name="pgmleccion" value="{{ dataprim.4 }}" readonly">
+                    </div>
+
+                    <div class="izquierdo">
+                        <p> Periodo: </p>
+                        <input type="text" name="pgmfechafull" value="{{ dataprim.5 }}" readonly />
+                    </div>
+
+                    <div class="izquierdo">
+                        <p>  Tipo: </p>
+                        <input type="text" name="pgmtipoasig" value="{{ dataprim.8}}" readonly />
+                    </div>
+
+                    <div class="izquierdo">
+                        <p> Descripcion: </p>
+                        <input type="text" name="pgmtexto" value="{{ dataprim.15}}" readonly cols="50" />
+                    </div>
+                    <div class="izquierdo">
+                        <p>  titular <p>
+                            <input type="text" name="Req_nombret" value="{{rcdstudent.1}}" readonly />
+                    </div>
+                    <div class="izquierdo">
+                        <p> genero  </p>
+                        <input type="text" name="Req_sexot" value="{{rcdstudent.2}}" readonly />
+                    </div>
+                    <div class="izquierdo">
+                        <p> tipo-pub  </p>
+                        <input type="text" name="Req_tipot" value="{{rcdstudent.3}}" readonly />
+                    </div>
+                    <div class="izquierdo">
+                        <p> status  </p>
+                        <input type="text" name="Req_statust" value="{{rcdstudent.4}}" readonly />
+                    </div>
+                    <div class="izquierdox">
+                        <select name="Req_sala" required>
+                            <option> principal </option>
+                            <option> auxiliar-1 </option>
+                            <option> auxiliar-2 </option>
+                        </select>
+                    </div>
+
+                    <div class="aa">
+                        <br />
+                        <input type="submit" value="Grabar-Uno" id="submit" />
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+    </body>
+{% endblock %}
+</html>

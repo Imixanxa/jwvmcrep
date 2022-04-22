@@ -1,0 +1,41 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+
+{% block body %}
+<body>
+
+
+    <style>
+        .Reunion {
+            margin: auto;
+            background-color: #ffffff;
+            font-style: italic;
+        }
+    </style>
+
+    <div class="Reunion">
+        <h2>
+            {% block title %} Busqueda de estudiantes
+            {% endblock %}
+        </h2>
+
+        <form action="/topico_lectura/ {{ pgmid }} " method="post">
+            <label for="periodo_m"> periodo de busqueda  </label>
+            <input type="month" name="periodo_m" id="periodo_m">
+            <label for="name"> nombre de estudiante </label>
+            <input type="text" name="name" id="name">
+            <label> Enter to accept </label>
+            <input type="submit" />
+        </form>
+    </div>
+
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,106 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>topico_pre_w_lectura</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/materia/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='inputcss.css')}}">
+</head>
+{% block body %}
+<body>
+    <h4>
+        {% block title %} 
+        <i>
+            topico_pre_w_lecturafm<br />
+            ready to generate the assignment<br />
+        </i> 
+        {% endblock %}
+    </h4>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .izquierdo {
+            float: left;
+            width: 33.33%;
+            padding: 30px
+        }
+        i {
+            font-style: italic;
+        }
+
+    </style>
+    <form class="Reunion" action="/Topico_lect_upd_vmc/{{dataprim.0}} {{rcdstudent.0}}" method='post'>
+
+        <div class="izquierdo">
+            <label for="año"> Year </label>
+            <input type="number" name="pgmani" value="{{ dataprim.1 }}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="mes"> Month </label>
+            <input type="number" name="pgmmes" value="{{ dataprim.2 }}" readonly />
+        </div>
+
+        <div class="izquierdo">
+            <label for="tiempo"> Time </label>
+            <input type="number" name="pgmtiempo" value="{{ dataprim.3 }}" readonly>
+        </div>
+
+        <div class="izquierdo">
+            <label for="Lesson"> Lesson </label>
+            <input type="text" name="pgmleccion" value="{{ dataprim.4 }}" readonly">
+        </div>
+
+        <div class="izquierdo">
+            <label for="Periodo"> Period </label>
+            <input type="text" name="pgmfechafull" value="{{ dataprim.5 }}" readonly />
+        </div>
+
+        <div class="izquierdo">
+            <label for="tipo asignacion"> Asignation </label>
+            <input type="text" name="pgmtipoasig" value="{{ dataprim.8}}" readonly />
+        </div>
+
+        <div class="izquierdo">
+            <label for="texto"> Detalle </label>
+            <input type="text" name="pgmtexto" value="{{ dataprim.15}}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="Titular"> Name student </label>
+            <input type="text" name="Req_nombret" value="{{rcdstudent.1}}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="Sexo Titular"> Sex Student  </label>
+            <input type="text" name="Req_sexot" value="{{rcdstudent.2}}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="Tipo Estudiante"> Type student  </label>
+            <input type="text" name="Req_tipot" value="{{rcdstudent.3}}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="Staus Estudiante"> Status student  </label>
+            <input type="text" name="Req_statust" value="{{rcdstudent.4}}" readonly />
+        </div>
+        <div class="izquierdo">
+            <label for="Sala asignada"> Selection Salon </label>
+            <select name="Req_sala" required>
+                <option> principal </option>
+                <option> auxiliar-1 </option>
+                <option> auxiliar-2 </option>
+            </select>
+        </div>
+        <div class="izquierdo">
+            <label for="grabe"> Enter to accept </label>
+            <input type="submit" value="Grabe" id="submit" />
+        </div>
+    </form>
+</body>
+{% endblock %}
+</html>

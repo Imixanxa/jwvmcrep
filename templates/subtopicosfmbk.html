@@ -1,0 +1,88 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+
+{% block body %}
+<body>
+    <style>
+        i {
+            font-style: oblique;
+        }
+    </style>
+
+    <div class="form-group">
+        <h4>
+            {% block title %} <i>
+                its parameters were <br />
+                {{ semanai }} - {{ semanaf }} - {{ tipo }} <br />
+                filter by student
+                {% endblock %}
+            </i>
+        </h4>
+
+        <form action="/topico_lectura/ {{ pgmid }} " method="post">
+            <i>
+                <label for="periodo mensual"> Period: </label>
+                <input type="month" name="periodo_m" id="periodo_m">
+            </i>
+            <i>
+                <label for="nombre estudiante"> Student Main </label>
+                <input type="text" name="name" id="name">
+            </i>
+            <input type="submit" />
+        </form>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            <table class="table table-striped table-bordered bg-white table-sm">
+                <thead>
+                    <tr>
+                        <td> Id Tit</td>
+                        <td> Anio </td>
+                        <td> Mes </td>
+                        <td> Titular </td>
+                        <td> Auxiliar </td>
+                        <td> Id_Aux </td>
+                        <td> Asignacion </td>
+                        <td> Genero </td>
+                        <td> Status </td>
+                        <td> Operation</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estudiante in students %}
+                    <tr>
+                        <td> {{ estudiante.0 }} </td>
+                        <td> {{ estudiante.1 }} </td>
+                        <td> {{ estudiante.2 }} </td>
+                        <td> {{ estudiante.3 }} </td>
+                        <td> {{ estudiante.4 }} </td>
+                        <td> {{ estudiante.5 }} </td>
+                        <td> {{ estudiante.6 }} </td>
+                        <td> {{ estudiante.7 }} </td>
+                        <td> {{ estudiante.8 }} </td>
+
+                        <td>
+                            <a href="/Topico_lectura_w/{{ estudiante.0 }} {{ pgmid }}"
+                               class="btn btn-secondary">Edit</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</body>
+    {% endblock %}
+
+
+
+</html>

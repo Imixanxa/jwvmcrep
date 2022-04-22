@@ -1,0 +1,65 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>topico_readfm</title>
+</head>
+
+
+{% block body %}
+<body>
+    <style>
+        i {
+            font-style: italic;
+        }
+    </style>
+
+    <div class="form-group">
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <h3><i>{{message}}</i></h3>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <h4>
+            {% block title %}
+            <i>
+                main student: <br />
+                {{ semanai }} - {{ semanaf }} - {{ topico }} <br />
+                planId: {{ pgmid }}
+                {% endblock %}
+            </i>
+        </h4>
+
+
+        <form action="/topico_read/ {{ pgmid }} " method="post">
+            <h4>
+                <i>
+                    <label for="periodo mensual"> Period: </label>
+                    <input type="month" name="periodo_m" id="periodo_m">
+                </i>
+                <i>
+                    <label for="nombre estudiante"> Student Main </label>
+                    <input type="text" name="name" id="name">
+                </i>
+                <i>
+                    <label for="">Enter to accept </label>
+                    <input type="submit" />
+
+                </i>
+            </h4>
+        </form>
+    </div>
+</body>
+    {% endblock %}
+</html>

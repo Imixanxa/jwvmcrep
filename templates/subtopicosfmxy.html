@@ -1,0 +1,49 @@
+﻿{% extends 'layout.html' %}
+<!DOCTYPE html> 
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>suntopicosfmxy</title>
+</head>
+{% block body %}
+
+<body>
+    <style>
+        i {
+            font-style: italic;
+        }
+    </style>
+    <div class="form-group">
+        <h4>
+            {% block title %}
+            <i>
+                your previous data:
+                {{ semanai }} - {{ semanaf }} - {{ tipo }} <br />
+                see student reference
+            </i>
+            {% endblock %}
+
+        </h4>
+
+        <form action="/topico_revisita/ {{ pgmid }} " method="post">
+            <h4>
+                <i>
+                    <br />
+                    <label for="periodo mensual"> Period </label>
+                    <input type="month" name="periodo_m" id="periodo_m">
+                </i>
+                <i>
+                    <label for="nombre estudiante"> Student Main </label>
+                    <input type="text" name="name" id="name">
+                </i>
+                <i>
+                    <label for="">Enter to accept</label>
+                    <input type="submit" />
+                </i>
+            </h4>
+        </form>
+    </div>
+</body>
+    {% endblock %}
+</html>

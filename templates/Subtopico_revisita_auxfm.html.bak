@@ -1,0 +1,79 @@
+﻿{% extends 'layout.html' %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+</head>
+{% block body %}
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .div {
+            float: left;
+            width: 25%;
+            padding: 25px
+        }
+
+        i {
+            font-style: italic;
+            text-align: left;
+        }
+    </style>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <h4> <i> {{message}} </i> </h4>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h4>
+
+        {% block title %}
+
+        <i>
+            find helper for:
+            {{ stuname }} - {{ stugenero }} - {{ stustatus }} <br />
+            {{ semanai }} - {{ semanaf }} - {{ topico }} <br />
+        </i>
+
+        {% endblock %}
+
+    </h4>
+
+
+
+    <div class="form-group">
+        <form action="/Subtopico_revisita_aux/ {{ idt }} {{ idpgmmonth }} " method="post">
+            <h4>
+                <i>
+                    <br />
+                    <label for="periodo_m"> period </label>
+                    <input type="month" name="periodo_m" id="periodo_m">
+                </i>
+                <i>
+                    <label for="name"> enter auxiliary student name </label>
+                    <input type="text" name="name" id="name">
+                </i>
+                <i>
+                    <label for=""> Enter to accept </label>
+                    <input type="submit" />
+                </i>
+            </h4>
+        </form>
+    </div>
+</body>
+    {% endblock %}
+</html>

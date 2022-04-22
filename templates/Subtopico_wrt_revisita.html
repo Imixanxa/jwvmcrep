@@ -1,0 +1,125 @@
+﻿{% extends 'layout.html' %}
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>subtopico_wrt_revisita</title>
+</head>
+{% block body %}
+
+<body>
+    <h2>
+        {% block title %}
+        subtopico_wrt_revisita<br />
+        student ready to receive their assignment
+        {% endblock %}
+    </h2>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .izquierdo {
+            float: left;
+            width: 25%;
+            padding: 25px
+        }
+    </style>
+
+    <div class="col-mod-4 offset-md-2">
+
+        <form class="form-inline" action="/Subtopico_rev_upd/{{dataprim.0}} {{recstudt.0}} {{recstuda.0}}" method='post'>
+            <div class="Reunion">
+                <div class="izquierdo">
+                    <label for="pgmani"> Year </label>
+                    <input type="number" name="pgmani" value="{{ dataprim.1 }}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmmes"> Month </label>
+                    <input type="number" name="pgmmes" value="{{ dataprim.2 }}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmtiempo"> Time </label>
+                    <input type="number" name="pgmtiempo" value="{{ dataprim.3 }}" readonly>
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmleccion"> Lesson </label>
+                    <input type="text" name="pgmleccion" value="{{ dataprim.4 }}" readonly">
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmfechafull"> Period </label>
+                    <input type="text" name="pgmfechafull" value="{{ dataprim.5 }}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmtexto"> Text </label>
+                    <input type="text" name="pgmtexto" value="{{ dataprim.15}}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="pgmtipoasig"> Type  Assign </label>
+                    <input type="text" name="pgmtipoasig" value="{{ dataprim.8}}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="Req_nombret"> Titular </label>
+                    <input type="text" name="Req_nombret" value="{{recstudt.1}}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="Req_sexot"> Sex titular </label>
+                    <input type="text" name="Req_sexot" value="{{recstudt.2}}" readonly />
+                </div>
+                <div class="izquierdo">
+                    <label for="Req_tipot"> Type titular </label>
+                    <input type="text" name="Req_tipot" value="{{recstudt.3}}" readonly />
+                </div>
+                <div class="izquierdo">
+                    <label for="Req_statust"> Status titular </label>
+                    <input type="text" name="Req_statust" value="{{recstudt.4 }}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="Req_nombrea"> Auxiliar </label>
+                    <input type="text" name="Req_nombrea" value="{{recstuda.1}}" readonly />
+                </div>
+                <div class="izquierdo">
+                    <label for="Req_sexoa"> Sex Auxiliar </label>
+                    <input type="text" name="Req_sexoa" value="{{recstuda.2}}" readonly />
+                </div>
+                <div class="izquierdo">
+                    <label for="Req_tipoa"> Type auxiliar </label>
+                    <input type="text" name="Req_tipoa" value="{{recstuda.3}}" readonly />
+                </div>
+                <div class="izquierdo">
+                    <label for="Req_stausa"> Status auxiliar </label>
+                    <input type="text" name="Req_statusa" value="{{recstuda.4}}" readonly />
+                </div>
+
+                <div class="izquierdo">
+                    <label for="Req_sala"> Saloon </label>
+                    <select name="Req_sala" required>
+                        <option> Sala principal </option>
+                        <option> Sala auxiliarp </option>
+                        <option> Sala auxiliars </option>
+                    </select>
+                </div>
+
+                <div class="izquierdo">
+                    <label for="Accept"> Accept </label>
+                    <input type="submit" value="Enter to Accept" id="submit" />
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+    {% endblock %}
+</html>
+
