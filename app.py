@@ -14,8 +14,6 @@ from tkcalendar import *
 from dateutil.parser import parse
 from dateutil.relativedelta import relativedelta, MO
 import keyword
-
-
 app=Flask('__name__')
 
 cnx = mysql.connector.connect(user='ejemplo', password='ejemplo',
